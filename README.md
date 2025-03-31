@@ -63,7 +63,7 @@ converting hex strings into event descriptions.
 If the event descriptors in the test data do not match those in your library
 you may convert them with a simple lookup table.
 
-You will also need to convert the `bytes` string to a MIDI binary string.
+You will also need to convert the `bytes` hex string to a MIDI byte stream.
 Some examples follow.
 
 ### Perl
