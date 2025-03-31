@@ -41,9 +41,9 @@ An array of hashes named `test_encoding` or `test_decoding`, containing:
 - `description` (string): A description of what this test intends to assert.
 - `spec` (string - optional): A reference to the MIDI 1.0 specification
 - `events` (array): An array of event hashes with the following keys:
-    - `name` (string): The event name, e.g. "note\_on", "note\_off", "control\_change"...
+    - `name` (string): The event name, e.g. `"note_on"`, `"note_off"`, `"control_change"`...
     - `data` (array): An array of 8-bit integers representing the event's data
-- `bytes`  (string) : A space-delimited string of readable hex values, e.g. "91 3c 5d"
+- `bytes`  (string) : A space-delimited string of readable hex values, e.g. `"91 3c 5d"`
 
 A single string of bytes may be mapped to zero or more events. Tests may also
 influence each other for, e.g. testing of running status. That is, the unit is
