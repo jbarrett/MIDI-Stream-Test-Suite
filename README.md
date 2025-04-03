@@ -72,6 +72,12 @@ Some examples follow.
 my $midi_bytestream = join '', map { chr hex } split " ", $json_bytes;
 ```
 
+or
+
+```perl
+my $midi_bytestream = pack 'H*', $json_bytes =~ y/ //dr;;
+```
+
 ### Python
 
 ```python
