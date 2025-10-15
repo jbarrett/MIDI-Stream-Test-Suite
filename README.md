@@ -91,13 +91,13 @@ my $midi_bytestream = join '', map { chr hex } split " ", $json_bytes;
 or
 
 ```perl
-my $midi_bytestream = pack 'H*', $json_bytes =~ y/ //dr;;
+my $midi_bytestream = pack 'H*', $json_bytes =~ y/ //dr;
 ```
 
 ### Python
 
 ```python
-midi_bytestream = bytes.fromhex( json_bytes );
+midi_bytestream = bytes.fromhex( json_bytes )
 ```
 
 ### Your favourite programming language
