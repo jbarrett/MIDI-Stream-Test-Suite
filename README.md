@@ -31,24 +31,26 @@ There isn't a format described as-yet for MIDI 2 tests.
 
 Each JSON file in this repository should contain the following:
 
-A version number. This README describes version 0.
+<!-- A version number. This README describes version 0. -->
 
-A high-level `"file_description"` of the tests in the file.
+A high-level `"description"` of the tests in the file.
+
+An optional `"ref"` containing a reference to the MIDI 1.0 specification or book or paper which
+describes this behaviour.
+
+A boolean `"standard"`, denoting whether the tests are for behaviour specified in the MIDI standard.
+If this is absent a default of `true` should be assumed.
 
 An optional `"source"` hash indicating the source of the data, containing:
 
-- `project` (string): The source name, and a short description
-- `URL`     (string): The canonical URL for the source
+- `"name"`    (string): The source name, and ideally a short description
+- `"URL"`     (string - optional): The canonical URL for the source
 
-An array of hashes named `"test_encoding"` or `"test_decoding"`, containing:
+An array of hashes named `"tests", containing:
 
-- `description` (string): A description of what this test intends to assert.
-- `standard` (boolean): Is the asserted behaviour as described in the MIDI specs?
-- `ref` (string - optional): A reference to the MIDI 1.0 specification or book or paper which describes this behaviour.
-- `events` (array): An array of event hashes with the following keys:
-    - `name` (string): The event name, e.g. `"note_on"`, `"note_off"`, `"control_change"`...
-    - `data` (hash): Named values for this event, e.g. `"channel"`, `"velocity"`
-    - `bytes`  (string) : A space-delimited string of readable hex values, e.g. `"91 3c 5d"`
+- `"description"` (string): A description of what this test intends to assert
+- `"data"` (MIDI events or byte string): Input data
+- `"expect"`(MIDI events or byte string): Expected output
 
 A single string of MIDI bytes may be mapped to zero or more events. Tests may
 also influence each other for, e.g. testing of running status. That is, the
@@ -57,10 +59,64 @@ unit is a complete JSON file, not a single test within it.
 Ordinarily binary data within JSON would be encoded as base64. The hex value
 strings described here should allow for easy reading and editing of test data.
 
-### Examples
+### Example
+
+This is a simple encoding test (this would be denoted by its presence in
+`MIDI_1\encoding`), describing some simple performance channel messages without
+consideration for running status.
 
 ```json
-
+{
+   "description" : "example test file",
+   "ref" : "MIDI 1.0 Detailed Specification, Details -> Channel Voice Messages",
+   "source" : {
+      "URL" : "https://github.com/jbarrett/MIDI-Stream-Test-Suite",
+      "name" : "MIDI Stream Test Suite"
+   },
+   "standard" : true,
+   "tests" : [
+      {
+         "data" : "90 45 7f 90 46 7f",
+         "description" : "Two full note-on messages",
+         "expect" : [
+            {
+               "note_on" : [
+                  0,
+                  69,
+                  127
+               ]
+            },
+            {
+               "note_on" : [
+                  0,
+                  70,
+                  127
+               ]
+            }
+         ]
+      },
+      {
+         "data" : "81 45 7f 81 46 7f",
+         "description" : "Two full note-off messages, channel 1",
+         "expect" : [
+            {
+               "note_off" : [
+                  1,
+                  69,
+                  127
+               ]
+            },
+            {
+               "note_off" : [
+                  1,
+                  70,
+                  127
+               ]
+            }
+         ]
+      }
+   ]
+}
 ```
 
 ## Usage
