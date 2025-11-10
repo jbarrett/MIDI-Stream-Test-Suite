@@ -1,0 +1,51 @@
+{
+   "description" : "example test file",
+   "ref" : "MIDI 1.0 Detailed Specification, Details -> Channel Voice Messages",
+   "source" : {
+      "URL" : "https://github.com/jbarrett/MIDI-Stream-Test-Suite",
+      "name" : "MIDI Stream Test Suite"
+   },
+   "standard" : true,
+   "tests" : [
+      {
+         "data" : "90 45 7f 90 46 7f",
+         "description" : "Two full note-on messages",
+         "expect" : [
+            {
+               "note_on" : [
+                  0,
+                  69,
+                  127
+               ]
+            },
+            {
+               "note_on" : [
+                  0,
+                  70,
+                  127
+               ]
+            }
+         ]
+      },
+      {
+         "data" : "81 45 7f 81 46 7f",
+         "description" : "Two full note-off messages, channel 1",
+         "expect" : [
+            {
+               "note_off" : [
+                  1,
+                  69,
+                  127
+               ]
+            },
+            {
+               "note_off" : [
+                  1,
+                  70,
+                  127
+               ]
+            }
+         ]
+      }
+   ]
+}

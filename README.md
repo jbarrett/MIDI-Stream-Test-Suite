@@ -62,8 +62,8 @@ strings described here should allow for easy reading and editing of test data.
 ### Example
 
 This is a simple encoding test (this would be denoted by its presence in
-`MIDI_1\encoding`), describing some simple performance channel messages without
-consideration for running status.
+`MIDI_1/encoding`), describing some simple performance channel messages without
+consideration for running status. Channels are zero-indexed.
 
 ```json
 {
