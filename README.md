@@ -67,12 +67,8 @@ consideration for running status. Channels are zero-indexed.
 
 ```json
 {
-   "description" : "example test file",
+   "description" : "Example test file (check your harness works!)",
    "ref" : "MIDI 1.0 Detailed Specification, Details -> Channel Voice Messages",
-   "source" : {
-      "URL" : "https://github.com/jbarrett/MIDI-Stream-Test-Suite",
-      "name" : "MIDI Stream Test Suite"
-   },
    "standard" : true,
    "tests" : [
       {
@@ -80,18 +76,16 @@ consideration for running status. Channels are zero-indexed.
          "description" : "Two full note-on messages",
          "expect" : [
             {
-               "note_on" : [
-                  0,
-                  69,
-                  127
-               ]
+               "channel" : 0,
+               "name" : "note_on",
+               "note" : 69,
+               "velocity" : 127
             },
             {
-               "note_on" : [
-                  0,
-                  70,
-                  127
-               ]
+               "channel" : 0,
+               "name" : "note_on",
+               "note" : 70,
+               "velocity" : 127
             }
          ]
       },
@@ -100,18 +94,16 @@ consideration for running status. Channels are zero-indexed.
          "description" : "Two full note-off messages, channel 1",
          "expect" : [
             {
-               "note_off" : [
-                  1,
-                  69,
-                  127
-               ]
+               "channel" : 1,
+               "name" : "note_off",
+               "note" : 69,
+               "velocity" : 127
             },
             {
-               "note_off" : [
-                  1,
-                  70,
-                  127
-               ]
+               "channel" : 1,
+               "name" : "note_off",
+               "note" : 70,
+               "velocity" : 127
             }
          ]
       }

@@ -8,18 +8,16 @@
          "description" : "Two full note-on messages",
          "expect" : [
             {
-               "note_on" : [
-                  0,
-                  69,
-                  127
-               ]
+               "channel" : 0,
+               "name" : "note_on",
+               "note" : 69,
+               "velocity" : 127
             },
             {
-               "note_on" : [
-                  0,
-                  70,
-                  127
-               ]
+               "channel" : 0,
+               "name" : "note_on",
+               "note" : 70,
+               "velocity" : 127
             }
          ]
       },
@@ -28,18 +26,16 @@
          "description" : "Two full note-off messages, channel 1",
          "expect" : [
             {
-               "note_off" : [
-                  1,
-                  69,
-                  127
-               ]
+               "channel" : 1,
+               "name" : "note_off",
+               "note" : 69,
+               "velocity" : 127
             },
             {
-               "note_off" : [
-                  1,
-                  70,
-                  127
-               ]
+               "channel" : 1,
+               "name" : "note_off",
+               "note" : 70,
+               "velocity" : 127
             }
          ]
       }
