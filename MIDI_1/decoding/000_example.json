@@ -1,10 +1,6 @@
 {
-   "description" : "example test file",
+   "description" : "Example test file (check your harness works!)",
    "ref" : "MIDI 1.0 Detailed Specification, Details -> Channel Voice Messages",
-   "source" : {
-      "URL" : "https://github.com/jbarrett/MIDI-Stream-Test-Suite",
-      "name" : "MIDI Stream Test Suite"
-   },
    "standard" : true,
    "tests" : [
       {
