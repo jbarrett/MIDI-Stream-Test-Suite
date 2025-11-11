@@ -117,15 +117,15 @@ Clone this repo, make the files available to your MIDI stream project using
 your preferred method (copy, git submodule ...), then build a test harness for
 your library which pulls tests from files in this repo.
 
-Tests denoted as `test_encoding` are intended to test converting an event
-description into hex strings. The `test_decoding` tests are intended to test
+Tests denoted as `encoding`, by their presence in that directory,
+are intended to test converting an event
+description into hex strings. The `decoding` tests are intended to test
 converting hex strings into event descriptions.
 
 If the event descriptors in the test data do not match those in your library
 you may convert them with a simple lookup table. A specific case which may also
 require attention is `"note_on"` messages with velocity 0. These are treated as
-`"note_off"` in decoded messages (this is done so note off can be sent as a 
-single running-status byte).
+`"note_off"` in decoded messages in test data.
 
 You will also need to convert the `bytes` hex string to a MIDI byte stream.
 Some examples follow.
