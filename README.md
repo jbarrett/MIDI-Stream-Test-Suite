@@ -152,6 +152,26 @@ midi_bytestream = bytes.fromhex( json_bytes )
 
 ...contributions welcome
 
+The opposite operation may be required (if only for test output readability) in encoding tests for comparing MIDI bytestreams against hex plaintext from JSON. Some examples:
+
+### Perl
+
+```
+my $json_bytes = join ' ', map { sprintf '%x', ord } split '', $string;
+```
+
+or
+
+```perl
+my $json_bytes = join ' ', unpack '(H2)*', $midi_bytestream;
+```
+
+### Python
+
+```python
+json_bytes = midi_bytestream.hex(' ')
+```
+
 ## License
 
 I dunno, is this even copyrightable?
