@@ -2,7 +2,7 @@
 
 ## What?
 
-A test suite for your MIDI 1.0 stream parser.
+A test suite for your MIDI 1.0 stream decoder and encoder.
 
 ## Why?
 
