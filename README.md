@@ -13,10 +13,10 @@ is low - they are effectively tied to their target project.
 
 ## How?
 
-Tests are taken from MIDI stream handling projects (e.g. ALSA), and are encoded
-as JSON in this repository. Some tests are also hand-crafted to exercise edge
-cases in the MIDI spec, or address common deviations from the spec by hardware
-manufacturers.
+~~Tests are taken from MIDI stream handling projects (e.g. ALSA), and are encoded
+as JSON in this repository.~~ Some tests are also hand-crafted to exercise edge
+cases in the MIDI spec, ~~or address common deviations from the spec by hardware
+manufacturers~~.
 
 You should pick and choose which test cases fit your needs - running the entire
 suite may be an ambitious endeavour.
